@@ -1,3 +1,6 @@
+// Copyright 2026 Bjorn Leffler
+// SPDX-License-Identifier: Apache-2.0
+
 // Package sseparse parses an Anthropic-flavoured Server-Sent Events stream
 // for usage accounting without buffering or blocking the client byte path.
 //

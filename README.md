@@ -13,31 +13,15 @@ A self-hosted gateway that routes [Claude Code](https://claude.ai/code) traffic 
 
 Skip this section if you already have a project with Vertex AI + Anthropic models enabled.
 
-### 1. Create the project
+### 1. Create the a GCP project with an attached billing account
 
-```bash
-gcloud projects create <PROJECT_ID> --name="Claude Code Gateway"
-gcloud config set project <PROJECT_ID>
-```
-
-`<PROJECT_ID>` must be globally unique across all of GCP, 6–30 chars, lowercase letters/digits/hyphens.
-
-### 2. Attach a billing account
-
-Vertex AI calls cost money, so the project needs billing. List the accounts you can use, then link one:
-
-```bash
-gcloud billing accounts list
-gcloud billing projects link <PROJECT_ID> --billing-account=<BILLING_ACCOUNT_ID>
-```
-
-### 3. Enable the Vertex AI API
+### 2. Enable the Vertex AI API
 
 ```bash
 gcloud services enable aiplatform.googleapis.com --project=<PROJECT_ID>
 ```
 
-### 4. Opt in to Anthropic models in Model Garden
+### 3. Opt in to Anthropic models in Model Garden
 
 The Claude models are opt-in **per project** and the opt-in must be done through the web console — there is no `gcloud` equivalent.
 
@@ -46,7 +30,7 @@ The Claude models are opt-in **per project** and the opt-in must be done through
 3. Click each model you intend to use (e.g. *Claude Opus 4.7*, *Claude Sonnet 4.6*, *Claude Haiku 4.5*).
 4. On each model card click **Enable**, then accept Anthropic's terms (only required the first time per project).
 
-### 5. Grant yourself the Vertex AI user role
+### 4. Grant yourself the Vertex AI user role
 
 ```bash
 gcloud projects add-iam-policy-binding <PROJECT_ID> \

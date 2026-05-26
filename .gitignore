@@ -1,0 +1,30 @@
+# Binaries
+/ccgateway
+*.exe
+*.test
+*.out
+
+# Coverage / profiling
+*.prof
+coverage.txt
+coverage.html
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.idea/
+.vscode/
+*.swp
+*~
+
+# Secrets / local env
+*.env
+.envrc
+
+# Local scratch
+/tmp/
+
+# Bazel symlinks (added in Step 8)
+/bazel-*

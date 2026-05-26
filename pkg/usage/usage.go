@@ -1,3 +1,6 @@
+// Copyright 2026 Bjorn Leffler
+// SPDX-License-Identifier: Apache-2.0
+
 // Package usage defines the canonical per-request usage row and the Sink
 // abstraction that delivers rows to a downstream destination (stdout in
 // Phase 1, BigQuery in Phase 2).

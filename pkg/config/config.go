@@ -1,3 +1,6 @@
+// Copyright 2026 Bjorn Leffler
+// SPDX-License-Identifier: Apache-2.0
+
 // Package config loads ccgw runtime configuration from environment variables.
 package config
 

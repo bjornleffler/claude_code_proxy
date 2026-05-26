@@ -1,0 +1,14 @@
+load("@rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "sseparse",
+    srcs = ["sseparse.go"],
+    importpath = "github.com/bjornleffler/claude_code_proxy/pkg/sseparse",
+    visibility = ["//visibility:public"],
+)
+
+go_test(
+    name = "sseparse_test",
+    srcs = ["sseparse_test.go"],
+    embed = [":sseparse"],
+)

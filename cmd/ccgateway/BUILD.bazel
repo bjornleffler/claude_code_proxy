@@ -1,0 +1,19 @@
+load("@rules_go//go:def.bzl", "go_binary", "go_library")
+
+go_library(
+    name = "ccgateway_lib",
+    srcs = ["main.go"],
+    importpath = "github.com/bjornleffler/claude_code_proxy/cmd/ccgateway",
+    visibility = ["//visibility:private"],
+    deps = [
+        "//pkg/config",
+        "//pkg/usage",
+        "//pkg/vertex",
+    ],
+)
+
+go_binary(
+    name = "ccgateway",
+    embed = [":ccgateway_lib"],
+    visibility = ["//visibility:public"],
+)

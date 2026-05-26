@@ -1,0 +1,25 @@
+load("@rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "vertex",
+    srcs = ["proxy.go"],
+    importpath = "github.com/bjornleffler/claude_code_proxy/pkg/vertex",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//pkg/config",
+        "//pkg/sseparse",
+        "//pkg/usage",
+        "@org_golang_x_oauth2//:oauth2",
+        "@org_golang_x_oauth2//google",
+    ],
+)
+
+go_test(
+    name = "vertex_test",
+    srcs = ["proxy_test.go"],
+    embed = [":vertex"],
+    deps = [
+        "//pkg/config",
+        "//pkg/usage",
+    ],
+)

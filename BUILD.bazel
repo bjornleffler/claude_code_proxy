@@ -1,0 +1,4 @@
+load("@gazelle//:def.bzl", "gazelle")
+
+# gazelle:prefix github.com/bjornleffler/claude_code_proxy
+gazelle(name = "gazelle")

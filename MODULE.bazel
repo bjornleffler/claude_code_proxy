@@ -1,0 +1,20 @@
+# Bazel module definition for ccgw. Phase 1 keeps this minimal: rules_go
+# for Go compilation, gazelle for BUILD-file generation from go.mod.
+
+module(
+    name = "ccgw",
+    version = "0.1.0",
+)
+
+bazel_dep(name = "rules_go", version = "0.60.0")
+bazel_dep(name = "gazelle", version = "0.51.0")
+
+go_sdk = use_extension("@rules_go//go:extensions.bzl", "go_sdk")
+go_sdk.download(version = "1.25.5")
+
+go_deps = use_extension("@gazelle//:extensions.bzl", "go_deps")
+go_deps.from_file(go_mod = "//:go.mod")
+use_repo(
+    go_deps,
+    "org_golang_x_oauth2",
+)
